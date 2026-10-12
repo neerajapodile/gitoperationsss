@@ -1,0 +1,63 @@
+<html>
+    <body>
+        <script>
+function add() {
+console.log("Adding");
+}
+function sub() {
+console.log("Subtracting");
+}
+function doAdd() {
+add();
+}
+function doSub() {
+sub();
+}
+
+//Instead of that
+function execute(operation) {
+operation();
+}
+execute(add);
+execute(sub); 
+function downloadImage(callback) {
+    console.log("Downloading photo.jpg...");
+    callback();
+}
+function displayIamge() {
+    console.log("Displaying photo.jpg ");
+}
+downloadImage(displayImage);
+//synchronous vs asynchronous
+const users = [ 
+    { id : 1, name: "sanny" },
+    { id : 2, name: "honey" },
+    { id : 3, name: "bandi" },
+];
+function getUser(id) {
+    return Promise.resolve(
+        users.find(user=>user.id === id)
+    )
+}
+function updateUSer(user) {
+    user.name=' neeraja';
+    return Promise.resolve(user);
+}
+     getUser(1)
+     .then(user=> {
+        console.log("Original User:",user);
+        return updateUser(user);
+     })
+     .then(updatedUser=> {
+        console.log("Updated User:" , UpdateUser)
+     } )
+     async function processUser() {
+        const user = await getUser(1);
+        console.log(user);
+        const updatedUser = await updatedUser(user);
+        console.log(updatedUser);
+     }
+     processUser();
+        </script>
+    </body>
+</html>
